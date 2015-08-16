@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Postgres TODO App</title>
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+
+</head>
+<body>
+    <div class="container" ng-controller="pageController">
+
+        <button ng-click="getData()" class="btn btn-info get">Get Info</button>
+
+        <div>
+            <form id="taskForm" method="post">
+                <label for="text">Task:</label>
+                <input ng-model="note.text" type="text" name="text" id="text"/>
+                <input ng-click="updateMessage(note)" type="submit" class="btn btn-info post" value="Create Task"/>
+            </form>
+        </div>
+
+        <div>
+            <div class ="col-sm-12 col-md-3" ng-repeat="name in names">
+                {{name.text}}
+                <button ng-click="removeTask(name)" type="button" value="remove">Delete Task</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<div id="someContainer" class="container">-->
+
+    <!--</div>-->
+
+    <!--SCRIPTS-->
+    <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+    <!--<script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js"></script>-->
+    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+</body>
+</html>
